@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ventas.VentasController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="522.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../recursos/iconoventa2_zps450e39bc_opt.png" />
+                    </image>
+                </ImageView>
+                <Label contentDisplay="CENTER" prefHeight="28.0" prefWidth="477.0" text="Registro de Ventas">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Label>
+            <Label fx:id="total1" prefHeight="81.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="s/. 00.00" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+                <Button alignment="TOP_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#registrar" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+               <graphic>
+                  <Label alignment="CENTER" centerShape="false" contentDisplay="TOP" prefHeight="80.0" prefWidth="100.0" text="Registrar Venta">
+                     <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../recursos/iconos-para-prestamos_Credixpress-01_opt.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic>
+                </Button>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets left="10.0" top="10.0" />
+            </padding>
+        </HBox>
+      <HBox prefHeight="510.0" prefWidth="609.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="670.0">
+               <children>
+                  <HBox prefHeight="16.0" prefWidth="308.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="133.0" text="Codigo de Barras" />
+                        <TextField fx:id="barras" prefHeight="25.0" prefWidth="189.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="16.0" prefWidth="308.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="133.0" text="Nombre" />
+                        <TextField fx:id="nombre" blendMode="GREEN" editable="false" prefHeight="25.0" prefWidth="189.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="35.0" prefHeight="16.0" prefWidth="308.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="133.0" text="Costo" />
+                        <TextField fx:id="costo" blendMode="GREEN" editable="false" prefHeight="25.0" prefWidth="189.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="60.0" prefHeight="16.0" prefWidth="308.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="133.0" text="Stock" />
+                        <TextField fx:id="stock" blendMode="GREEN" editable="false" prefHeight="25.0" prefWidth="189.0" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="venta_detalle" prefHeight="339.0" prefWidth="267.0">
+                     <columns>
+                        <TableColumn fx:id="tpocicion" minWidth="9.0" onEditStart="#gg" prefWidth="21.0" text="#" />
+                        <TableColumn fx:id="tcantidad" prefWidth="40.0" text="Cant." />
+                        <TableColumn fx:id="tcodigo" prefWidth="59.0" text="Codigo" />
+                        <TableColumn fx:id="tnombre" prefWidth="205.0" text="Nombre" />
+                        <TableColumn fx:id="tprecio" prefWidth="81.0" text="Precio unit." />
+                        <TableColumn fx:id="ttotal" prefWidth="60.0" text="total" />
+                     </columns></TableView>
+                  <Label fx:id="total2" text="Total es : 0 soles" />
+               </children>
+            </VBox>
+            <VBox prefHeight="450.0" prefWidth="433.0">
+               <children>
+                  <TextField fx:id="filterField" promptText="buscar" />
+                  <TableView fx:id="tablee" prefHeight="425.0" prefWidth="403.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+        <!-- icon usage license: 
+        Creative Commons with attribution,
+        back link to http://www.rockettheme.com required -->
+    </children>
+</VBox>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/LoginController.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CCliente.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/modelo/principla.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/categoria/M_categoria_iniController.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/PrinciplaController.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/vista/Login.fxml</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/vista/admi/side.fxml</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/vista/ventas/ventas.fxml</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/vista/FXMLdoc2.fxml</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CVenta_detalle.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/vista/categoria/m_categoria_ini.fxml</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/modelo/Fx2.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CArticulo.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/bd/DContacto.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/ventas/modelo_venta.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CAdministrador.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/C_Principal.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/bd/DCategoria.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/bd/DDireccion.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/entidades.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CCompra.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CPersonal_reparto.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/FXMLdoc2Controller.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/bd/DArticulo.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/modelo/TableViewWithEditButton.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CCategoria.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/ventas/VentasController.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/main.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/vista/Principla.fxml</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/controlador/admi/SideController.java</file>
+            <file>file:/C:/Users/WARREN/Documents/NetBeansProjects/fx2/src/clases/CContacto.java</file>
+        </group>
+    </open-files>
+</project-private>
