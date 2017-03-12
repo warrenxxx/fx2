@@ -6,12 +6,16 @@
 package controlador.ventas;
 
 import bd.DArticulo;
+import bd.DVenta;
+import bd.DVenta_detalle;
 import clases.CArticulo;
 import clases.CCategoria;
+import clases.CVenta;
 import clases.CVenta_detalle;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -37,6 +41,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import static modelo.Fx2.USER;
 
 /**
  * FXML Controller class
@@ -92,10 +97,33 @@ public class VentasController implements Initializable {
     }
 
     public void registrar(ActionEvent ev) {
+        CVenta v=new CVenta();
+        v.setCliente("xxxxxxxx");
+        v.setFecha_hora(new Date().toGMTString());
+        v.setVendedor(USER.getId());
+        v.toMap();
+        String id=new DVenta().insertar(v);
+        for(modelo_venta m:data_venta){
+              CVenta_detalle m1=new CVenta_detalle();
+              m1.setArticulo(m.getCodigo());
+              m1.setCantidad(m.getCantidad());
+              m1.setPrecio(m.getPrecio());
+              m1.setVenta(id);
+              new DVenta_detalle().insertar(m1);
+        }
+        data_venta.clear();
+        venta_detalle.refresh();
+        limpiar();
     }
-
+    public void limpiar(){
+        barras.setText("");
+        costo.setText("");
+        nombre.setText("");
+        stock.setText("");
+        total1.setText("");
+        total2.setText("");
+    }
     public void gg(ActionEvent ev) {
-        System.out.println("ggss");
     }
     int hhh=0;
     public void ini2() {
@@ -125,8 +153,6 @@ public class VentasController implements Initializable {
         
         tc_pre.setOnEditCommit(data -> {
             modelo_venta p = data.getRowValue();
-            System.out.println(p);
-            System.out.println(data.getNewValue());
             if (!data.getNewValue().matches("[0-9]+(\\.[0-9][0-9])?")) 
                             p.setPrecio(data.getOldValue());             
             else            p.setPrecio(data.getNewValue());
@@ -273,12 +299,10 @@ public class VentasController implements Initializable {
         int num = 0;
         for (modelo_venta m : data_venta) {
             num++;
-            System.out.println(m);
             double k = Double.parseDouble(m.getTotal());
             cont += k;
             m.setNumero(num + "");
         }
-        System.out.println(cont + "");
         total2.setText("Total es : " + cont + " soles");
         total1.setText("S/." + cont + "");
     }

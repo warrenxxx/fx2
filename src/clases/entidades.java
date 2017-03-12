@@ -19,7 +19,7 @@ public class entidades {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 50; i++) {
             String a = "des"+i;
             String b = "material"+i;
             String c = ""+Math.rint((Math.random()*20)*100)/100;

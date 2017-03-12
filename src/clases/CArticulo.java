@@ -18,6 +18,14 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class CArticulo extends C_Principal{
     
+    /*
+         c_v. put("_id", "");
+        c_v. put("cantidad", "");
+        c_v. put("costo", "");
+        c_v. put("id_ventas", "");
+        c_v. put("id_articulos", "");
+
+    */
     private final SimpleStringProperty barras;
     private final SimpleStringProperty nombre;
     private final SimpleStringProperty descripcion;
