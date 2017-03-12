@@ -32,11 +32,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
@@ -67,18 +69,25 @@ public class VentasController implements Initializable {
     TableColumn ttotal;
 
     @FXML
+    ToggleGroup gr1;
+
+    @FXML
     TextField barras;
     @FXML
-    TextField nombre;
+    Label nombre;
     @FXML
-    TextField costo;
+    Label costo;
     @FXML
-    TextField stock;
+    Label stock;
     @FXML
     Label total1;
     @FXML
     Label total2;
-
+    @FXML
+    private RadioButton restandar;
+    @FXML
+    private RadioButton rcdatos;
+    
     @FXML
     TextField filterField;
     ObservableList<CArticulo> data;
@@ -95,27 +104,31 @@ public class VentasController implements Initializable {
         ini();
         ini2();
     }
+    public void tipo_cliente(ActionEvent ev) {
+        System.out.println(ev.getEventType().getName());
+    }
 
     public void registrar(ActionEvent ev) {
-        CVenta v=new CVenta();
+        CVenta v = new CVenta();
         v.setCliente("xxxxxxxx");
         v.setFecha_hora(new Date().toGMTString());
         v.setVendedor(USER.getId());
         v.toMap();
-        String id=new DVenta().insertar(v);
-        for(modelo_venta m:data_venta){
-              CVenta_detalle m1=new CVenta_detalle();
-              m1.setArticulo(m.getCodigo());
-              m1.setCantidad(m.getCantidad());
-              m1.setPrecio(m.getPrecio());
-              m1.setVenta(id);
-              new DVenta_detalle().insertar(m1);
+        String id = new DVenta().insertar(v);
+        for (modelo_venta m : data_venta) {
+            CVenta_detalle m1 = new CVenta_detalle();
+            m1.setArticulo(m.getCodigo());
+            m1.setCantidad(m.getCantidad());
+            m1.setPrecio(m.getPrecio());
+            m1.setVenta(id);
+            new DVenta_detalle().insertar(m1);
         }
         data_venta.clear();
         venta_detalle.refresh();
         limpiar();
     }
-    public void limpiar(){
+
+    public void limpiar() {
         barras.setText("");
         costo.setText("");
         nombre.setText("");
@@ -123,23 +136,33 @@ public class VentasController implements Initializable {
         total1.setText("");
         total2.setText("");
     }
+
     public void gg(ActionEvent ev) {
     }
-    int hhh=0;
+    int hhh = 0;
+
     public void ini2() {
+
+        gr1.selectedToggleProperty().addListener((obserableValue, old_toggle, new_toggle) -> {
+            if (gr1.getSelectedToggle() != null) {
+                System.out.println(new_toggle.getUserData().toString());
+            }
+        });
         TableView<modelo_venta> table = venta_detalle;
         data_venta = FXCollections.observableArrayList();
-        
+
         tpocicion.setCellValueFactory(new PropertyValueFactory<>("numero"));
-        
+
         TableColumn<modelo_venta, String> tc_can = tcantidad;
         tc_can.setCellValueFactory(new PropertyValueFactory<modelo_venta, String>("cantidad"));
         tc_can.setCellFactory(TextFieldTableCell.forTableColumn());
         tc_can.setOnEditCommit(data -> {
-                        modelo_venta p = data.getRowValue();
-            if (!data.getNewValue().matches("[0-9]+(\\.[0-9][0-9])?")) 
-                    p.setCantidad(data.getOldValue());             
-            else    p.setCantidad(data.getNewValue());
+            modelo_venta p = data.getRowValue();
+            if (!data.getNewValue().matches("[0-9]+(\\.[0-9][0-9])?")) {
+                p.setCantidad(data.getOldValue());
+            } else {
+                p.setCantidad(data.getNewValue());
+            }
             sumar();
             venta_detalle.refresh();
         });
@@ -150,18 +173,20 @@ public class VentasController implements Initializable {
         TableColumn<modelo_venta, String> tc_pre = tprecio;
         tc_pre.setCellValueFactory(new PropertyValueFactory<modelo_venta, String>("precio"));
         tc_pre.setCellFactory(TextFieldTableCell.forTableColumn());
-        
+
         tc_pre.setOnEditCommit(data -> {
             modelo_venta p = data.getRowValue();
-            if (!data.getNewValue().matches("[0-9]+(\\.[0-9][0-9])?")) 
-                            p.setPrecio(data.getOldValue());             
-            else            p.setPrecio(data.getNewValue());
+            if (!data.getNewValue().matches("[0-9]+(\\.[0-9][0-9])?")) {
+                p.setPrecio(data.getOldValue());
+            } else {
+                p.setPrecio(data.getNewValue());
+            }
             sumar();
             venta_detalle.refresh();
         });
-        
+
         ttotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        
+
         TableColumn<modelo_venta, modelo_venta> editColumn = column("Eliminar", ReadOnlyObjectWrapper<modelo_venta>::new, 60);
         table.getColumns().add(editColumn);
         editColumn.setCellFactory(col -> {
@@ -216,7 +241,7 @@ public class VentasController implements Initializable {
         TableColumn firstNameCol = new TableColumn("wsid");
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         table.getColumns().add(firstNameCol);
-        
+
         TableColumn firstNameCol1 = new TableColumn("Codigo");
         firstNameCol1.setCellValueFactory(new PropertyValueFactory<>("barras"));
         table.getColumns().add(firstNameCol1);
@@ -325,10 +350,13 @@ public class VentasController implements Initializable {
 
         String lowerCaseFilterString = filterString.toLowerCase();
 
-        if (person.getNombre().toLowerCase().indexOf(lowerCaseFilterString) != -1) return true; else 
-        if (person.getCategoria().toLowerCase().indexOf(lowerCaseFilterString) != -1) return true; else 
-        if (person.getBarras().toLowerCase().indexOf(lowerCaseFilterString) != -1) return true;
-        
+        if (person.getNombre().toLowerCase().indexOf(lowerCaseFilterString) != -1) {
+            return true;
+        } else if (person.getCategoria().toLowerCase().indexOf(lowerCaseFilterString) != -1) {
+            return true;
+        } else if (person.getBarras().toLowerCase().indexOf(lowerCaseFilterString) != -1) {
+            return true;
+        }
 
         return false; // Does not match
     }

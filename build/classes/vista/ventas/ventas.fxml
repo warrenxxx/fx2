@@ -36,7 +36,7 @@
             </Label>
                 <Button alignment="TOP_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#registrar" prefHeight="100.0" prefWidth="100.0" textAlignment="CENTER">
                     <HBox.margin>
-                        <Insets />
+                        <Insets bottom="5.0" />
                     </HBox.margin>
                <graphic>
                   <Label alignment="CENTER" centerShape="false" contentDisplay="TOP" prefHeight="80.0" prefWidth="100.0" text="Registrar Venta">
@@ -47,6 +47,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" />
+                     </opaqueInsets>
                   </Label>
                </graphic>
                 </Button>
@@ -62,28 +65,69 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="670.0">
                <children>
-                  <HBox prefHeight="16.0" prefWidth="308.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="133.0" text="Codigo de Barras" />
-                        <TextField fx:id="barras" prefHeight="25.0" prefWidth="189.0" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="16.0" prefWidth="308.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="133.0" text="Nombre" />
-                        <TextField fx:id="nombre" blendMode="GREEN" editable="false" prefHeight="25.0" prefWidth="189.0" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="35.0" prefHeight="16.0" prefWidth="308.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="133.0" text="Costo" />
-                        <TextField fx:id="costo" blendMode="GREEN" editable="false" prefHeight="25.0" prefWidth="189.0" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="60.0" prefHeight="16.0" prefWidth="308.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="133.0" text="Stock" />
-                        <TextField fx:id="stock" blendMode="GREEN" editable="false" prefHeight="25.0" prefWidth="189.0" />
+                        <VBox prefHeight="97.0" prefWidth="251.0">
+                           <children>
+                              <HBox prefHeight="17.0" prefWidth="231.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="123.0" text="Codigo de Barras : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="barras" prefHeight="25.0" prefWidth="123.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="16.0" prefWidth="308.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="65.0" text="Nombre : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="nombre" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="16.0" prefWidth="308.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="50.0" text="Costo : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="costo" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="16.0" prefWidth="308.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="53.0" text="Stock : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="stock" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="97.0" prefWidth="264.0">
+                           <children>
+                              <HBox prefHeight="21.0" prefWidth="302.0">
+                                 <children>
+                                    <RadioButton fx:id="restandar" mnemonicParsing="false" onAction="#tipo_cliente" prefHeight="17.0" prefWidth="150.0" selected="true" text="Cliente Estandar">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="gr1" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="rdatos" mnemonicParsing="false" onAction="#tipo_cliente" prefHeight="17.0" prefWidth="142.0" text="Cliente con datos" toggleGroup="$gr1" />
+                                 </children>
+                              </HBox>
+                              <TextField promptText="DNI" visible="false" />
+                              <TextField promptText="NOMBRES" visible="false" />
+                              <TextField promptText="APELLIDOS" visible="false" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <TableView fx:id="venta_detalle" prefHeight="339.0" prefWidth="267.0">
@@ -104,6 +148,7 @@
                   <TableView fx:id="tablee" prefHeight="425.0" prefWidth="403.0" />
                </children>
             </VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
          </children>
       </HBox>
         <!-- icon usage license: 
